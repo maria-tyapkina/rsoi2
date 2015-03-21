@@ -1,0 +1,13 @@
+curl -H "Content-Type: application/json" -d '{"client_id" : "93WV6S0I6W3WCVEUY3RTMHAU6CEW26J1", "client_secret" : "W6THSB3Y8JY2ZJDYOGMLJTZRTWNWQVOK", "code" : "aa79833150a946e29b5dfa8e98c3d0407e950cedc9a17ff605d42f5b", "grant_type" : "authorization_code"}' 127.0.0.1:5000/oauth/token
+
+
+curl -H "Content-Type: application/json" -d '{"refresh_token" : "936155c3c257946681ce6f3f57fc139ceaf378a83927a2fb06d0bcc3", "grant_type" : "refresh_token"}' 127.0.0.1:5000/oauth/token
+
+http://127.0.0.1:5000/oauth?client_id=93WV6S0I6W3WCVEUY3RTMHAU6CEW26J1&response_type=code
+
+curl -H "Content-Type: application/json" -H "Authorization: f3ea19438aec45c122de8317d9bb145f9dcd8f4bb2af8502bde9d899" 127.0.0.1:5000/orders
+
+curl -H "Content-Type: application/json" -H "Authorization: f3ea19438aec45c122de8317d9bb145f9dcd8f4bb2af8502bde9d899" -G 127.0.0.1:5000/orders -d 'page_id=0' -d 'page_num=2'
+
+curl -H "Authorization: c8d5634213a243e9b3bfbf35d78eaa18a3e4353a9e0ef27d589e1fe8" 127.0.0.1:5000/uinfo
+

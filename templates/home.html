@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+{% if user %}
+	<p>Hello, {{ user.username }}.<p>
+	{% if client %}
+		You'r client credentials:
+		<table cellspacing=4 border=1>
+		<tr>
+			<td>client_id:</td><td>{{ client.client_id }}</td>
+		</tr>
+		<tr>
+			<td>client_secret:</td><td>{{ client.client_secret }}</td>
+		</tr>
+		</table>
+	{% else %}
+		You haven't got client credentials.
+	{% endif %}
+	<p>
+	{% if data_list %}
+		You'r order:</p>
+		<table cellspacing=4>
+		<tr alitn = center><td>Title</td><td>Price</td>
+		{% for data in data_list %}
+			<tr align=right>
+				<td>{{ data['item'] }}</td> 
+				<td>{{ data['price']}}</td>
+			</tr>
+		{% endfor %}
+		</table>
+	{% else %}
+		Unbelievable! You haven't got any orders!
+	{% endif %}
+	<form method="POST" action='/logout'>
+		<button name="logout" value="{{ user.id }}">logout</button>
+	</form>
+	<p>
+{% else %}
+    	<p>You are not authenticated</p>
+  	<p>Log in:</p>
+	<form method="POST" action="/">
+		<input type="text" name="username" value = ""></br>
+		<input type="password" name="password" value = "">
+		<button name='login' value='OK'>log in</button> 
+	</form>
+	<a href="/registration">Register</a>
+{% endif %}
+</body>
+</html>

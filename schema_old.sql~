@@ -1,0 +1,23 @@
+drop table if exists client;
+drop table if exists menu;
+drop table if exists orders;
+create table client(
+	id integer primary key autoincrement,
+	username text no null unique,
+	password text not null,
+	name text not null,
+	family_name text not null,
+	telephone text not null
+);
+create table menu(
+	id integer primary key autoincrement,
+	name text not null,
+	price real not null,
+	client_id integer not null references client(id),
+	orders_id integer not null references orders(id)
+);
+create table orders(
+	id integer primary key autoincrement,
+	datetime text not null,
+	client_id integer not null references client(id)
+);

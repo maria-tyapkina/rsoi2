@@ -1,0 +1,7 @@
+#Configuration file
+
+DEBUG = True
+DATABASE = 'schema.db'
+SECRET_KEY = 'development_key'
+USERNAME = 'admin'
+PASSWORD = 'admin'

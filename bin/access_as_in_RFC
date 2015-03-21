@@ -1,0 +1,7 @@
+resp = Response()
+							resp.headers['Content-Type'] = 'application/json'
+							resp.headers['Cache-Control'] = 'no-store'
+							resp.headers['Pragma'] = 'no-store'
+							resp.status = 'OK'
+							resp.status_code=200
+							resp.data = json.dumps({'access_token' : acc, 'refresh_token' : ref, 'expires' : exp, 'token_type' : 'bearer'})
